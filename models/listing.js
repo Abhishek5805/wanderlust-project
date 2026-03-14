@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const listingSchema = new Schema({
+    title:{
+        type:String,
+        required:true
+    },
+    description:String,
+
+    image:{
+        url:{
+            type:String,
+            default:"https://img.freepik.com/free-photo/beautiful-lake-mountains_395237-44.jpg?semt=ais_rp_50_assets&w=740&q=80"
+        },
+        filename:String
+    },
+
+    price:Number,
+    location:String,
+    country:String,
+});
+
+const Listing = mongoose.model("Listing", listingSchema);
+module.exports = Listing;
