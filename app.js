@@ -45,11 +45,15 @@ app.get("/listings/:id", async (req,res)=>{
     res.render("listings/show",{ Listing });
 });
 
-//cfreate route
-app.post('/listings',async(req,res)=>{
+//create route
+app.post('/listings',async(req,res,next)=>{
+    try{        
     const newList = new listing(req.body.listing);
     await newList.save();
    res.redirect("/listings");
+    }catch(err){
+        next(err);
+    }
 });
 
 
@@ -87,6 +91,11 @@ app.delete('/listings/:id',async(req,res)=>{
 //     console.log('Sample listing created!');
 //     res.send('Sucessfull testing');
 // });
+
+app.use((err,req,res,next)=>{
+    res.status(500).send('Something went wrong !');
+});
+
 app.listen(8080,()=>{
     console.log('Server is running on port 8080');
 });

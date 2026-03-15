@@ -16,6 +16,10 @@
           class="form-control"
           required
         >
+        <div class="valid-feedback">
+          Title looks good !
+
+        </div>
       </div>
 
       <div class="mb-3">
@@ -26,6 +30,8 @@
           rows="3"
           required
         ></textarea>
+        <div class="invalid-feedback">
+          Please provide a short description.
       </div>
 
       <div class="mb-3">
@@ -50,6 +56,10 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">
+            Please provide a valid price.
+
+        </div>
         </div>
 
         <div class="mb-3 col-md-8">
@@ -61,6 +71,10 @@
             class="form-control"
             required
           />
+          <div class="invalid-feedback">
+            Please provide a valid country.
+
+        </div>
         </div>
 
       </div>
@@ -73,6 +87,9 @@
           type="text" 
           class="form-control"
         />
+        <div class="invalid-feedback">
+          Please provide a valid location.
+        </div>
       </div>
 
       <button class="btn btn-dark add-btn mt-3">Add</button>

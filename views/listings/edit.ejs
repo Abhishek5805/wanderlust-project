@@ -5,38 +5,56 @@
 
     <h3>Edit Listing</h3>
 
-    <form method="POST" action="/listings/<%= Listing._id %>?_method=PUT">
+    <form method="POST" action="/listings/<%= Listing._id %>?_method=PUT" novalidate class="needs-validation">
 
       <div class="mb-3">
         <label class="form-label">Title</label>
-        <input name="listing[title]" value="<%= Listing.title %>" type="text" class="form-control">
+        <input name="listing[title]" value="<%= Listing.title %>" type="text" class="form-control" required>
+        <div class="valid-feedback">
+          Title looks good !
+        </div>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Description</label>
-        <textarea name="listing[description]" rows="5" class="form-control"><%= Listing.description %></textarea>
+        <textarea name="listing[description]" rows="5" class="form-control" required ><%= Listing.description %></textarea>
+        <div class="invalid-feedback">
+          Please provide a short description.
+        </div>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Image URL</label>
-        <input name="listing[image][url]" value="<%= Listing.image.url %>" type="text" class="form-control">
+        <input name="listing[image][url]" value="<%= Listing.image.url %>" type="text" class="form-control" required>
+        <div class="invalid-feedback">
+          Please provide a valid image URL.
+        </div>
       </div>
 
       <div class="row">
         <div class="mb-3 col-md-4">
           <label class="form-label">Price</label>
-          <input name="listing[price]" value="<%= Listing.price %>" type="number" class="form-control">
+          <input name="listing[price]" value="<%= Listing.price %>" type="number" class="form-control" required>
+          <div class="invalid-feedback">
+            Please provide a valid price.
+          </div>
         </div>
 
         <div class="mb-3 col-md-8">
           <label class="form-label">Country</label>
-          <input name="listing[country]" value="<%= Listing.country %>" type="text" class="form-control">
+          <input name="listing[country]" value="<%= Listing.country %>" type="text" class="form-control" required>
+          <div class="invalid-feedback">
+            Please provide a valid country.
+          </div>
         </div>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Location</label>
-        <input name="listing[location]" value="<%= Listing.location %>" type="text" class="form-control">
+        <input name="listing[location]" value="<%= Listing.location %>" type="text" class="form-control" required>
+        <div class="invalid-feedback">
+          Please provide a valid location.
+        </div>
       </div>
 
       <button class="btn btn-dark edit-btn mt-3">Edit</button>
@@ -45,3 +63,4 @@
 
   </div>
 </div>
+ <script src="/js/script.js"></script>
