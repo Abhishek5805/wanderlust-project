@@ -49,7 +49,10 @@ app.get("/listings/:id", wrapAsync(async (req,res)=>{
 
 //create route
 app.post('/listings',wrapAsync(async(req,res,next)=>{
-        
+        if(!req.body.listing)
+        {
+             throw new ExpressError('Invalid listing data',400);
+        }
     const newList = new listing(req.body.listing);
     await newList.save();
    res.redirect("/listings");
@@ -99,7 +102,8 @@ app.use((req,res)=>{
 
 app.use((err,req,res,next)=>{
     let{statusCode=500,message='Something went wrong!'} = err;
-    res.status(statusCode).send(message);
+    res.render('error',{err});
+    // res.status(statusCode).send(message);
 });
 
 app.listen(8080,()=>{
