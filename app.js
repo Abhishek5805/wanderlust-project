@@ -96,14 +96,17 @@ app.delete('/listings/:id',wrapAsync(async(req,res)=>{
 // });
 
 
-app.use((req,res)=>{
-    res.status(404).send("Page Not Found");
+// 404 handler
+app.use((req, res, next) => {
+    let err = new Error("Page Not Found");
+    err.statusCode = 404;
+    next(err);
 });
 
-app.use((err,req,res,next)=>{
-    let{statusCode=500,message='Something went wrong!'} = err;
-    res.render('error',{err});
-    // res.status(statusCode).send(message);
+// error handler
+app.use((err, req, res, next) => {
+    let { statusCode = 500, message = "Something went wrong!" } = err;
+    res.status(statusCode).render("error", { message });
 });
 
 app.listen(8080,()=>{
