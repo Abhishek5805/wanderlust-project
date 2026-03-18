@@ -11,6 +11,7 @@ Wanderlust is a full stack web application inspired by Airbnb where users can cr
 - Responsive UI using Bootstrap
 
 ## 🛠️ Technologies Used
+
 - Node.js
 - Express.js
 - MongoDB
@@ -29,6 +30,8 @@ wanderlust-project
 ├── public
 ├── app.js
 ├── package.json
+
+
 ## ▶️ How to Run the Project
 
 1. Clone the repository
