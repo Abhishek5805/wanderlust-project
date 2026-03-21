@@ -8,6 +8,7 @@ const ejsMate = require('ejs-mate');
 const wrapAsync = require('./utils/wrapAsync.js');
 const ExpressError = require('./utils/ExpressError.js');
 const { listingSchema } = require('./schema.js');
+const review = require('./models/review.js');
 
 
 main().then(()=>{
@@ -97,6 +98,19 @@ app.delete('/listings/:id',wrapAsync(async(req,res)=>{
     res.redirect('/listings');
 }));
 
+
+//review routes
+//post route for reviews
+app.post('/listings/:id/reviews',wrapAsync(async(req,res)=>{
+   let Listings = await listing.findById(req.params.id);
+    let newReview = new review(req.body.review);
+
+    Listings.reviews.push(newReview);
+    await newReview.save();
+    await Listings.save();
+    console.log('Review added successfully!');
+    res.send('Review added successfully!');
+}));
 // app.get('/testlisting',async(req,res)=>{
 //     let sampleListing = new listing({
 //         title:"Beautiful Beach House",

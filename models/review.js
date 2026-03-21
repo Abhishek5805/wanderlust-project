@@ -1,19 +1,17 @@
 const mongoose = require('mongoose');
-const { create } = require('./listing');
-const Schema= new mongoose.Schema
+const Schema = mongoose.Schema; // ✅ correct way
 
 const reviewSchema = new Schema({
-    Comment:String,
-    rating:{
-        type:Number,
-        min:1,
-        max:5
+    comment: String,   // ⚠️ use lowercase (best practice)
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5
     },
-    createdAt:{
-        type:Date,
-        default:Date.now()
+    createdAt: {
+        type: Date,
+        default: Date.now   // ⚠️ no brackets
     }
 });
-module.exports = mongoose.model('Review',reviewSchema);
 
-
+module.exports = mongoose.model('Review', reviewSchema);
