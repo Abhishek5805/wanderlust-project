@@ -32,16 +32,17 @@ wanderlust-project
 ├── package.json
 
 
+
 ## ▶️ How to Run the Project
 
 1. Clone the repository
 2. Install dependencies
 
-npm install
+   npm install
 
 3. Start the server
 
-nodemon app.js
+     nodemon app.js
 
 4. Open browser
 
