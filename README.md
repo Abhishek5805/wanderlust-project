@@ -2,7 +2,9 @@
 
 Wanderlust is a full stack web application inspired by Airbnb where users can create and explore travel listings.
 
+
 ## 🚀 Features
+
 - Create new listings
 - View all listings
 - Edit existing listings
@@ -32,7 +34,6 @@ wanderlust-project
 ├── package.json
 
 
-
 ## ▶️ How to Run the Project
 
 1. Clone the repository
@@ -50,3 +51,4 @@ http://localhost:8080
 
 
 # Work In Progress
+
