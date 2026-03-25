@@ -5,7 +5,7 @@
             <h3> <%= Listing.title %></h3>
             </div>
        
-    <div class="card col-md-6 offset-md-3 show-card">
+    <div class="card col-md-6 offset-md-3 show-card ">
          <img src="<%= Listing.image.url %>" class="card-img-top show-img" alt="listing_image">
   <div class="card-body">
     <p class="card-text">&#8377; <%= Listing.price.toLocaleString("en-IN") %> /night</p>
@@ -26,7 +26,8 @@
     </form>
     </div>
 
-<div class="col-8 offset-3">
+<div class="col-8 offset-3 mb-3">
+    <hr/>
     <h4>leave a review</h4>
     <form action="/listings/<%= Listing._id %>/reviews" method="POST" novalidate class="needs-validation">
         <div class="mb-3 mt-3">
@@ -42,4 +43,18 @@
         </div>
         <button type="submit" class="btn btn-outline-dark">Submit</button>
     </form>
+    <hr/>
+    <p><b>all reviews</b></p>
+    <div class="row">
+
+    <% for(let review of Listing.reviews){ %>
+        <div class="card col-5 ms-3 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Review</h5>
+                <p class="card-text"><%= review.comment %></p>
+                <p class="card-text">Rating: <%= review.rating %> Stars</p>
+            </div>
+        </div>
+    <% } %>
+</div>
 </div>
