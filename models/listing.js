@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const review = require('./review.js');
 
 const listingSchema = new Schema({
     title:{
@@ -27,6 +28,13 @@ const listingSchema = new Schema({
     ]
 
 });
+
+//mongoose middleware to delete associated reviews when a listing is deleted
+listingSchema.post('findOneAndDelete', async function(doc) {
+    if (doc) {
+        await mongoose.model('Review').deleteMany({ _id: { $in: doc.reviews } });
+    }  
+}); 
 
 const Listing = mongoose.model("Listing", listingSchema);
 module.exports = Listing;
