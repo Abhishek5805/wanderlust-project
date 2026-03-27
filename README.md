@@ -51,4 +51,15 @@ http://localhost:8080
 
 
 # Work In Progress
+These features are currently being developed:
+
+- User authentication and authorization
+- Advanced search and filtering
+- User reviews and ratings
+- Booking system
+- Payment integration
+- Map integration for location display
+- Email notifications
+- User profile management
+
 
