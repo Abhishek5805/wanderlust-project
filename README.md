@@ -22,16 +22,27 @@ Wanderlust is a full stack web application inspired by Airbnb where users can cr
 - Bootstrap
 
 ## 📂 Project Structure
-
-wanderlust-project
-│
-├── models
+```
+wanderlust-project/
+├── models/
 │   └── listing.js
-├── views
-│   └── listings
-├── public
+├── views/
+│   ├── listings/
+│   ├── layouts/
+│   └── index.ejs
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── routes/
+│   └── listings.js
+├── controllers/
+│   └── listings.js
 ├── app.js
 ├── package.json
+├── package-lock.json
+└── .gitignore
+```
 
 
 ## ▶️ How to Run the Project
