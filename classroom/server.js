@@ -12,7 +12,7 @@ app.get("/users", (req, res) => {
 //show routes
 app.get('"/users/:id', (req, res) => {
     res.send("get for users");
-}
+}   );
 
 
 
