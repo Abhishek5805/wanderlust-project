@@ -5,6 +5,37 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
+//index routes
+//insert routes
+app.get("/users", (req, res) => {
+    res.send("List of users ");
+});
+
+//show routes
+app.get("/users/:id", (req, res) => {
+    res.send("Show a user");
+});
+
+//post routes
+app.post("/users", (req, res) => {
+    res.send("Create a new user");
+});
+
+//update routes
+app.put("/users/:id", (req, res) => {
+    res.send("Update a user");
+});
+
+//delete routes
+app.delete("/users/:id", (req, res) => {
+    res.send("Delete a user");
+});
+
+
+
+
+
+
 //insert routes
 app.get("/posts", (req, res) => {
     res.send("List of posts");
