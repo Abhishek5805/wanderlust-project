@@ -10,6 +10,7 @@ const ExpressError = require('./utils/ExpressError.js');
 const { listingSchema,reviewSchema} = require('./schema.js');
 const review = require('./models/review.js');
 const listings=require('./routes/listings.js');
+const reviews = require('./routes/review.js');
 
 
 main().then(()=>{
@@ -33,54 +34,8 @@ app.get('/',(req,res)=>{
 });
 
 
-
-
-const validateReview = (req,res,next)=>{
-     let {error} = reviewSchema.validate(req.body);
-    if(error){
-        let msg = error.details.map(el=>el.message).join(',');
-        throw new ExpressError(400,msg);
-    }else{
-        next();
-
-    }
-}
-
 app.use('/listings', listings);
-
-//review routes
-//post route for reviews
-app.post('/listings/:id/reviews',validateReview,wrapAsync(async(req,res)=>{
-   let Listings = await listing.findById(req.params.id);
-    let newReview = new review(req.body.review);
-
-    Listings.reviews.push(newReview);
-    await newReview.save();
-    await Listings.save();
-    res.redirect(`/listings/${Listings._id}`);
-}));
-
-
-
-//delete route for reviews
-app.delete('/listings/:id/reviews/:reviewId',wrapAsync(async(req,res)=>{
-    let { id, reviewId } = req.params;
-    await listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    await review.findByIdAndDelete(reviewId);
-    res.redirect(`/listings/${id}`);
-}));
-// app.get('/testlisting',async(req,res)=>{
-//     let sampleListing = new listing({
-//         title:"Beautiful Beach House",
-//         description:"A stunning beach house with breathtaking ocean views. This property features 4 bedrooms, 3 bathrooms, and a spacious living area perfect for entertaining. Enjoy the private pool and direct access to the beach.",
-//          price:1500,
-//         location:"Malibu, California",
-//         country:"United States"
-//     });
-//     sampleListing.save();
-//     console.log('Sample listing created!');
-//     res.send('Sucessfull testing');
-// });
+app.use('/listings/:id/reviews',reviews);
 
 
 // 404 handler
