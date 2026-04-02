@@ -5,15 +5,30 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
-app.get("/users", (req, res) => {
-    res.send("List of users");
+//insert routes
+app.get("/posts", (req, res) => {
+    res.send("List of posts");
 });
 
 //show routes
-app.get('"/users/:id', (req, res) => {
-    res.send("get for users");
-}   );
+app.get("/posts/:id", (req, res) => {
+    res.send("Show a post");
+});
 
+//post routes
+app.post("/posts", (req, res) => {
+    res.send("Create a new post");
+});
+
+//update routes
+app.put("/posts/:id", (req, res) => {
+    res.send("Update a post");
+});
+
+//delete routes
+app.delete("/posts/:id", (req, res) => {
+    res.send("Delete a post ");
+});
 
 
 app.listen(3000, () => {
