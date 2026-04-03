@@ -74,3 +74,17 @@ These features are currently being developed:
 - User profile management
 
 
+## 🛠️ Create Project Structure
+
+From terminal in `wanderlust-project`:
+
+- `mkdir -p models views/listings views/layouts public/css public/js public/images routes controllers`
+- `touch app.js package.json .gitignore`
+- `touch models/listing.js routes/listings.js controllers/listings.js`
+- `touch views/index.ejs views/listings/index.ejs views/listings/new.ejs views/listings/edit.ejs views/layouts/main.ejs`
+
+Optional file layout command:
+
+- `tree -a` (Windows: `tree /F`)
+
+Use these folders/files as a starting scaffold before adding code.
