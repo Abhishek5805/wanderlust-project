@@ -88,3 +88,27 @@ Optional file layout command:
 - `tree -a` (Windows: `tree /F`)
 
 Use these folders/files as a starting scaffold before adding code.
+
+## 🤝 Contributing
+
+We welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes and test thoroughly.
+4. Submit a pull request with a clear description.
+
+Please follow the existing code style and include tests if applicable.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+For questions or support, reach out to the project maintainer at [your-email@example.com] or open an issue on GitHub.
+
+## 🙏 Acknowledgments
+
+- Inspired by Airbnb.
+- Thanks to the open-source community for tools like Node.js, Express, and Bootstrap.
