@@ -1,3 +1,5 @@
+
+// app.js this file is the main entry point of the application. It sets up the Express server, connects to the MongoDB database, and defines the routes for the application. It also includes error handling for 404 and other errors.
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
