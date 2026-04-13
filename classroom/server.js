@@ -1,5 +1,13 @@
 const express = require('express');
 const app = express();
+const users = require('./routes/users.js');
+const posts = require('./routes/posts.js');
+
+app.get('/getcookies', (req, res) => {
+    res.cookie('name', 'John Doe');
+    res.cookie('age', '30');
+    res.send('Cookie has been set');
+});
 
 app.get('/', (req, res) => {
     res.send('Hello, World!');
@@ -36,6 +44,3 @@ app.delete("/posts/:id", (req, res) => {
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
-
-
-

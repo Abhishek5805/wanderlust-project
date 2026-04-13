@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const users=require("./routes/user.js");
 //insert routes
 router.get("/", (req, res) => {
     res.send("List of users ");
@@ -25,3 +24,5 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
     res.send("Delete a user");
 });
+
+module.exports = router;
