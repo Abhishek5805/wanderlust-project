@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const users = require('./routes/users.js');
 const posts = require('./routes/posts.js');
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
 
 app.get('/getcookies', (req, res) => {
     res.cookie('name', 'John Doe');
@@ -9,6 +12,10 @@ app.get('/getcookies', (req, res) => {
     res.send('Cookie has been set');
 });
 
+app.get('/greet', (req, res) => {
+    const name = req.cookies.name || 'Guest';
+    res.send(`Hello, ${name}!`);
+});
 app.get('/', (req, res) => {
     console.dir(req.cookies);
     res.send('Hello, World!');
