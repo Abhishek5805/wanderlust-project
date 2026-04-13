@@ -10,6 +10,7 @@ app.get('/getcookies', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+    console.dir(req.cookies);
     res.send('Hello, World!');
 });
 
