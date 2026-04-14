@@ -4,8 +4,13 @@ const users = require('./routes/users.js');
 const posts = require('./routes/posts.js');
 const cookieParser = require('cookie-parser');
 
-app.use(cookieParser());
-
+app.use(cookieParser("secretkey"));
+ 
+app.get('/getcookies', (req, res) => {
+    res.cookie('name', 'John Doe',{signed: true});
+    res.cookie('age', '30');
+    res.send('Cookie has been set');
+}   );
 app.get('/getcookies', (req, res) => {
     res.cookie('name', 'John Doe');
     res.cookie('age', '30');
