@@ -6,11 +6,17 @@ const cookieParser = require('cookie-parser');
 
 app.use(cookieParser("secretkey"));
  
-app.get('/getcookies', (req, res) => {
+app.get('/getsignedcookie', (req, res) => {
     res.cookie('name', 'John Doe',{signed: true});
     res.cookie('age', '30');
     res.send('Cookie has been set');
 }   );
+
+app.get('/verifycookie', (req, res) => {
+    console.log(req.signedCookies);
+    res.send('Cookie has been verified');
+});
+
 app.get('/getcookies', (req, res) => {
     res.cookie('name', 'John Doe');
     res.cookie('age', '30');
