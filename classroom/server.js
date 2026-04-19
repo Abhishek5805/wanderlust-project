@@ -1,9 +1,13 @@
+// server.js uses Express to create a server and handle routes for users and posts. It also uses cookie-parser and express-session for handling cookies and sessions.
+
 const express = require('express');
 const app = express();
 const users = require('./routes/users.js');
 const posts = require('./routes/posts.js');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
+
 
 // app.use(cookieParser("secretkey"));
  
